@@ -19,14 +19,14 @@ This is a full-stack movie recommendation app with authentication, search, and r
 
 ### Backend
 
-1. `cd movie-backend`
+1. `cd backend`
 2. `npm install`
 3. Create a `.env` file (see `.env.example`) with your MongoDB URI, JWT secret, and TMDB API key.
 4. `npm start`
 
 ### Frontend
 
-1. `cd movie-frontend-vite`
+1. `cd frontend`
 2. `npm install`
 3. Create a `.env` file (see `.env.example`) with your backend URL.
 4. `npm run dev`
