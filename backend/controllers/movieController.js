@@ -1,3 +1,13 @@
+import Movie from "../models/Movie.js";
+// Get all movies (public)
+export const getAllMovies = async (req, res) => {
+  try {
+    const movies = await Movie.find({});
+    res.json(movies);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
 export const getMovieDetails = async (req, res) => {
   const { id } = req.params;
   try {

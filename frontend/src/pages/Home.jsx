@@ -12,7 +12,7 @@ function Home() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/movies`);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL || "http://localhost:5000"}/api/movies`);
         setMovies(res.data);
       } catch (err) {
         setError(err.response?.data?.message || err.message);
