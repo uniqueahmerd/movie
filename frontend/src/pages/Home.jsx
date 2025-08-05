@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 const MovieCard = React.lazy(() => import('../components/MovieCard'));
 const MovieModal = React.lazy(() => import('../components/MovieModal'));
 
@@ -11,12 +12,10 @@ function Home() {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/movies`);
-        if (!res.ok) throw new Error('Failed to fetch movies');
-        const data = await res.json();
-        setMovies(data);
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/movies`);
+        setMovies(res.data);
       } catch (err) {
-        setError(err.message);
+        setError(err.response?.data?.message || err.message);
       } finally {
         setLoading(false);
       }
